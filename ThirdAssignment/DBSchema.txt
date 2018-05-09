@@ -1,0 +1,9 @@
+  Patient ------------< Consultation >-------------- User
+   id			   id			      id
+   name 		  date	                     username			
+  idInfo		 diagnostic		    password
+   pnc		       recommendation 		     role
+   dob			patientID
+  address	        doctorID
+
+

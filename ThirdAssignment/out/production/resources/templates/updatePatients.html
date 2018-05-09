@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patients</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/updatePatients.js"></script>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/logout}">Logout</a>
+
+<h1>Patients:</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>PNC</th>
+        <th>Birthday</th>
+        <th>Address</th>
+        <th>Id Card Info</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<hr/>
+
+<form>
+    Name: <input type="text" id="createName"/>
+    PNC: <input type="text" id="createPNC"/>
+    Birthday: <input type="date" id="createBirthday"/>
+    Address: <input type="text" id="createAddress"/>
+    Id card info: <input type="text" id="createIdInfo"/>
+    <button id="createPatient">Create</button>
+</form>
+<hr/>
+<form>
+    Id: <input type="number" id="updateIdPatient"/>
+    Name: <input type="text" id="updateName"/>
+    PNC: <input type="text" id="updatePNC"/>
+    Birthday: <input type="date" id="updateBirthday"/>
+    Address: <input type="text" id="updateAddress"/>
+    Id card info: <input type="text" id="updateIdInfo"/>
+    <button id="updatePatient">Update</button>
+</form>
+
+
+
+<div  style="padding: 0;">
+    <ul id="result">
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/crudUsers.js"></script>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/logout}">Logout</a>
+
+<h1>Users:</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<hr/>
+
+<form>
+    Username: <input type="text" id="username"/>
+    Password: <input type="password" id="password"/>
+    Role: <input type="text" id="role"/>
+    <button id="createUser">Create</button>
+    <button id="updateUser">Update</button>
+</form>
+
+<hr/>
+<form>
+    Username: <input type="text" id="delUsername"/>
+    <button id="deleteUser">Delete</button>
+</form>
+
+
+<div  style="padding: 0;">
+    <ul id="result">
+    </ul>
+</div>
+</body>
+</html>

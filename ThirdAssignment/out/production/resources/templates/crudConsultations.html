@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Consultations</title>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="js/crudConsultations.js"></script>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload = "connect()" onunload = "disconnect()">
+<a th:href="@{/logout}">Logout</a>
+
+<h1>Consultations:</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Doctor</th>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Diagnostic</th>
+        <th>Recommendation</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<hr/>
+
+<form>
+    Doctor:
+    <select name="doctor" id="createDoctor">
+        <option th:each="doctor : ${doctors}" th:value="${doctor.username}" th:text="${doctor.username}"></option>
+    </select>
+
+    Patient:
+    <select name="patient" id="createPatient">
+        <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.name}"></option>
+    </select>
+
+    Date: <input type="date" id="createDate"/>
+    <button id="createConsultation">Create</button>
+</form>
+<hr/>
+<form>
+    ID: <input type="number" id="idConsultation"/>
+
+    Doctor:
+    <select name="doctor" id="updateDoctor">
+        <option th:each="doctor : ${doctors}" th:value="${doctor.username}" th:text="${doctor.username}"></option>
+    </select>
+
+    Patient:
+    <select name="patient" id="updatePatient">
+        <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.name}"></option>
+    </select>
+
+    Date: <input type="date" id="updateDate"/>
+
+    <button id="updateConsultation">Update</button>
+</form>
+
+<hr/>
+<form>
+    ID: <input type="text" id="delID"/>
+    <button id="deleteConsultation">Delete</button>
+</form>
+
+<hr/>
+<form>
+    Check-in:<br></br>
+    Patient:
+    <select name="patient" id="checkedInPatient">
+        <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.name}"></option>
+    </select>
+    Doctor:
+    <select name="doctor" id="checkedInDoctor">
+        <option th:each="doctor : ${doctors}" th:value="${doctor.username}" th:text="${doctor.username}"></option>
+    </select>
+    <button id="checkin">Check-in</button>
+</form>
+
+<hr/>
+
+<div  style="padding: 0;">
+    <ul id="result">
+    </ul>
+</div>
+</body>
+</html>

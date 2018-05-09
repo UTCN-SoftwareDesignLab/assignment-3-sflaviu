@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Consultations</title>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="js/updateDiagnostics.js"></script>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload = "connect()" onunload = "disconnect()">
+<a th:href="@{/logout}">Logout</a>
+
+<h1>Past Consultations:</h1>
+
+<table id="pastConsultations">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Doctor</th>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Diagnostic</th>
+        <th>Recommendation</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<hr/>
+<form>
+    ID: <input type="number" id="idConsultation"/>
+    Diagnostic: <input type="text" id="diagnostic"/>
+    Recommendation: <input type="text" id="recommendation"/>
+
+    <button id="updateConsultation">Update</button>
+</form>
+<hr/>
+
+<h1>Future Consultations:</h1>
+<table id="futureConsultations">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Doctor</th>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Diagnostic</th>
+        <th>Recommendation</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<hr/>
+
+<div  style="padding: 0;">
+    <ul id="result">
+    </ul>
+</div>
+</body>
+</html>
